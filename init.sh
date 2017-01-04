@@ -403,7 +403,7 @@ function do_build_zeppelin() {
     echo
     echo "Deploying Visualization Tool..."
     echo
-    oc process -v SOURCE_REPOSITORY_REF=${GIT_BRANCH},RHN_USER=${RHN_USER},RHN_PASS=${RHN_PASS} -l ${ZEPPELIN_LABEL} -f ${SCRIPT_BASE_DIR}/support/templates/rhel-zeppelin.json | oc create -n ${IOT_OCP_PROJECT} -f-
+    oc process -v SOURCE_REPOSITORY_URL=https://github.com/jamesfalkner/iot-ocp.git,SOURCE_REPOSITORY_REF=${GIT_BRANCH},RHN_USER=${RHN_USER},RHN_PASS=${RHN_PASS} -l ${ZEPPELIN_LABEL} -f ${SCRIPT_BASE_DIR}/support/templates/rhel-zeppelin.json | oc create -n ${IOT_OCP_PROJECT} -f-
 
     validate_build_deploy "rhel-zeppelin"
 
