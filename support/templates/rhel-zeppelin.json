@@ -42,6 +42,18 @@
             "required": false
         },
         {
+            "description": "Red Hat Subscription username",
+            "name": "RHN_USER",
+            "value": "",
+            "required": true
+        },
+        {
+            "description": "Red Hat Subscription password",
+            "name": "RHN_PASS",
+            "value": "",
+            "required": true
+        },
+        {
             "description": "GitHub trigger secret",
             "name": "GITHUB_WEBHOOK_SECRET",
             "from": "[a-zA-Z0-9]{8}",
@@ -157,7 +169,17 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "rhel7:7.2"
-                        }
+                        },
+                        "env": [
+                            {
+                                "name": "RHN_USER",
+                                "value": "${RHN_USER}"
+                            },
+                            {
+                                "name": "RHN_PASS",
+                                "value": "${RHN_PASS}"
+                            }
+                        ]
                     }
                 },
                 "output": {
