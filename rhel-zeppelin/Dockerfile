@@ -13,7 +13,8 @@ ENV HOME=/opt/zeppelin \
     ZEPPELIN_NOTEBOOK_DIR=/opt/zeppelin/storage/notebook \
     ZEPPELIN_INTERPRETER_DIR=/opt/zeppelin/storage/interpreter
 
-RUN subscription-manager register --username $RHN_USER --password $RHN_PASS --auto-attach || sleep 86400
+RUN subscription-manager register --username $RHN_USER --password $RHN_PASS && \
+    subscription-manager attach --pool=$RHN_POOL
 
 RUN yum clean all && \
     export INSTALL_PKGS="java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless gettext tar git which unzip" && \

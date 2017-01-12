@@ -54,6 +54,12 @@
             "required": true
         },
         {
+            "description": "Red Hat Subscription pool ID",
+            "name": "RHN_POOL",
+            "value": "",
+            "required": true
+        },
+        {
             "description": "GitHub trigger secret",
             "name": "GITHUB_WEBHOOK_SECRET",
             "from": "[a-zA-Z0-9]{8}",
@@ -174,6 +180,10 @@
                             {
                                 "name": "RHN_USER",
                                 "value": "${RHN_USER}"
+                            },
+                            {
+                                "name": "RHN_POOL",
+                                "value": "${RHN_POOL}"
                             },
                             {
                                 "name": "RHN_PASS",
